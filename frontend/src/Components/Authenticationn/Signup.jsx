@@ -11,11 +11,21 @@ import {
 const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [password,setPassword]=useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [pic, setPic] = useState();
 
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
+
+  const postDetails = (pic) =>{
+
+  }
+
+  const submitHandler = () =>{
+
+  }
+
   return (
     <>
       <VStack spacing={"5px"} color={"white"}>
@@ -41,6 +51,8 @@ const Signup = () => {
             <Input
               placeholder="Enter Your Password"
               type={show1 ? "text" : "password"}
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
             />
             <InputRightElement width={"4.5rem"}>
               <Button
@@ -59,6 +71,8 @@ const Signup = () => {
             <Input
               placeholder="Please confirm your password"
               type={show2 ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(e)=>setConfirmPassword(e.target.value)}
             />
             <InputRightElement width={"4.5rem"}>
               <Button
@@ -71,6 +85,22 @@ const Signup = () => {
             </InputRightElement>
           </InputGroup>
         </FormControl>
+        <FormControl id="pic" isRequired color={"black"}>
+          <FormLabel>Upload the picture</FormLabel>
+            <Input
+            type="file"
+            p={1.5}
+            accept="/image/*"
+            onChange={e=>postDetails(e.target.files[0])}
+            />
+        </FormControl>
+        <Button
+        colorScheme="blue"
+        width="100%"
+        style={{marginTop:15}}
+        onClick={submitHandler}>
+            Sign Up
+        </Button>
       </VStack>
     </>
   );
