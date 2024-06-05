@@ -5,10 +5,10 @@ const bc = require('bcryptjs')
 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, pic } = req.body;
-  if (!name || !email || !password) {
-    res.status(200);
-    throw new Error("Please enter all the fields");
-  }
+  // if (!name || !email || !password) {
+  //   res.status(200);
+  //   throw new Error("Please enter all the fields");
+  // }
 
   const userExists = await userModel.findOne({ email });
   if (userExists) {
